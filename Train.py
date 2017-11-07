@@ -23,12 +23,13 @@ regressor = tf.estimator.DNNRegressor(feature_columns = feature_cols, hidden_uni
 
 
 
-def get_input_fun(data_set, num_epochs=None,shuffle=True):
-    return tf.estimator.imports.pandas_input_fun(
+def get_input_fn(data_set, num_epochs=None,shuffle=True):
+    return tf.estimator.inputs.pandas_input_fn(
         x=pd.DataFrame({k: data_set[k].values for k in FEATURES}),
         y = pd.Series(data_set[LABEL].values),
         num_epochs=num_epochs,
-        shuffle=shuffle)'''ok what just happened here? well, we first set the first parameter to all of the features, one data set for each. We then set the second
+        shuffle=shuffle) 
+'''ok what just happened here? well, we first set the first parameter to all of the features, one data set for each. We then set the second
 arguement as the label data. returns a dictionary with paired features with target values
 '''
 regressor.train(input_fn=get_input_fn(training_set), steps = 5000)

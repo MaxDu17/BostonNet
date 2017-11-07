@@ -19,7 +19,7 @@ prediction_set = pd.read_csv("boston_predict.csv", skipinitialspace = True, skip
 
 feature_cols = [tf.feature_column.numeric_column(k) for k in FEATURES] #this makes a special column for each feature, thats why its iterated, used for training
 
-regressor = tf.estimator.DNNRegressor(feature_columns = feature_cols, hidden_units=[10,10],model_dir = "/tmp/bostonModel") #this makes the regressor instance, makes two hidden layers, and feature columns that has all the features
+regressor = tf.estimator.DNNRegressor(feature_columns = feature_cols, hidden_units=[10,10],model_dir = "tmp/bostonModel") #this makes the regressor instance, makes two hidden layers, and feature columns that has all the features
 
 
 
@@ -43,5 +43,5 @@ print("Loss: {0:f}".format(loss_score))
 y = regressor.predict(
     input_fn=get_input_fn(prediction_set, num_epochs=1, shuffle=False))
 predictions = list(p["predictions"] for p in itertools.islice(y,6))
-print("Predictions: {}".format(str(predictions)))
+print("Predictions: {0}".format(str(predictions)))
 

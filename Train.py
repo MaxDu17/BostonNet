@@ -44,3 +44,4 @@ y = regressor.predict(
     input_fn=get_input_fn(prediction_set, num_epochs=1, shuffle=False))
 predictions = list(p["predictions"] for p in intertools.islice(y,6))
 print("Predictions: {}".format(str(predictions)))
+

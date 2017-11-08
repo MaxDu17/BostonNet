@@ -33,7 +33,6 @@ def get_input_fn(data_set, num_epochs=None,shuffle=True):
 y = regressor.predict(
     input_fn=get_input_fn(prediction_set, num_epochs=1, shuffle=False))
 predictions = list(p["predictions"] for p in itertools.islice(y,6))
-print("Predictions: {0}".format(str(predictions)))
 
 for l in predictions:
     print(l[0])

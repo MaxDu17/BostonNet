@@ -28,7 +28,7 @@ def get_input_fn(data_set, num_epochs=None,shuffle=True):
         x=pd.DataFrame({k: data_set[k].values for k in FEATURES}),
         y = pd.Series(data_set[LABEL].values),
         num_epochs=num_epochs,
-        shuffle=shuffle) 
+        shuffle=shuffle) #this returns A FUNCTION, which returns a dictionary of feature-label pairs
 
 y = regressor.predict(
     input_fn=get_input_fn(prediction_set, num_epochs=1, shuffle=False))

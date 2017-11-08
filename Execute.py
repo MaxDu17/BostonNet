@@ -35,3 +35,5 @@ y = regressor.predict(
 predictions = list(p["predictions"] for p in itertools.islice(y,6))
 print("Predictions: {0}".format(str(predictions)))
 
+for l in predictions:
+    print(l[0])
